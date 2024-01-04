@@ -9,8 +9,8 @@ import streamlit as st
 
 
 # loading the saved model
-#loaded_model = pickle.load(open('C:/Users/sujee/Downloads/mineproject/trained_model.sav', 'rb'))
-loaded_model = pickle.load(open('trained_model.sav', 'rb'))
+loaded_model = pickle.load(open('C:/Users/sujee/Downloads/mineproject/trained_model.sav', 'rb'))
+#loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 
 def diabetes_prediction(input_data):
     # changing the input_data to numpy array
@@ -56,6 +56,28 @@ def main():
             diagnosis=diabetes_prediction([Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age])
             
         st.success(diagnosis)
+        
+    if (selected=='SALARY PREDICTION'):
+         st.title('Salaryctc prediction using multiplelinearregression')
+         
+         #getting the input data from user
+         
+         grade = st.text_input('GRADE(1-10)')
+         softskill = st.text_input('SOFTSKILL(1-10)')
+         problemsolvingskill = st.text_input('PROBLEMSOLVING SKILL(1-10)')
+         meditationandyoga = st.text_input('MEDITATION AND YOGA(1-10)')
+         discipline = st.text_input('DISCIPLINE LEVEL(1-10)')
+         strongcommandinoneskill= st.text_input('STRONG COMMAND IN ONE SKILL(1-10)')
+         
+         #code for prediction
+         diagnosis=''
+         
+         #creating a button for prediction
+         if st.button('SALARY CTC IN LACS'):
+             input_data = [grade, softskill, problemsolvingskill, meditationandyoga, discipline, strongcommandinoneskill]
+             diagnosis = "soon it will predict"
+             
+         st.success(diagnosis)
         
         
     if (selected=='ITS_SU_RJ'):
